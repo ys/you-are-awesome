@@ -16,6 +16,7 @@ class Awesome < Sinatra::Base
                                   :from => ENV["ACCOUNT_PHONE_NUMBER"],
                                   :url => "http://you-are-awesome.herokuapp.com/#{params[:name]}.xml"})
 
+    erb :index
   end
 
   get "/:name.xml" do
