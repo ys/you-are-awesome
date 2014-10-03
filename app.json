@@ -1,35 +1,26 @@
 {
-  "name": "Moments",
-  "description": "Share your best moments, quickly over dropbox.",
+  "name": "You are awesome.",
+  "description": "Send a message to people that are awesome",
   "keywords": [
-    "dropbox",
-    "photography",
-    "portfolio"
+    "twilio",
+    "awesome"
   ],
-  "website": "http://github.com/ys/moments",
-  "repository": "http://github.com/ys/moments",
-  "logo": "http://cl.ly/image/0X240K3e2B1A/logo.png",
+  "website": "http://github.com/ys/you-are-awesome",
+  "repository": "http://github.com/ys/you-are-awesome",
+  "logo": "https://liltchan.files.wordpress.com/2012/06/my-man-bill.jpg",
   "scripts": {},
   "env": {
-    "MOMENTS_NAME": {
-      "description": "The title you want to see on pages",
-      "value": "Moments"
-    },
-    "MOMENTS_EMOJI": {
-      "description": "The emoji you want to see on pages",
-      "value": "☃"
-    },
-    "DROPBOX_TOKEN": {
-      "description": "A dropbox token accessing your pictures. See README for value",
-      "value": "",
+    "ACCOUNT_SID": {
+      "description": "Twilio SID",
       "required": true
     },
-    "FLUSH_TOKEN": {
-      "description": "A secret key for used by the Dropbox webhook.",
-      "generator": "secret"
+    "ACCOUNT_AUTH_TOKEN": {
+      "description": "Twilio auth account",
+      "required": true
+    },
+    "ACCOUNT_PHONE_NUMBER": {
+      "description": "Twilio account phone number",
+      "required": true
     }
-  },
-  "addons": [
-    "memcachier"
-  ]
+  }
 }
