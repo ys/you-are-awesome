@@ -27,4 +27,13 @@ class Awesome < Sinatra::Base
       <Record maxLength='20' />
     </Response>"
   end
+
+  post "/:name.xml" do
+    content_type 'application/xml'
+    "<?xml version='1.0' encoding='UTF-8'?>
+      <Response>
+        <Say voice='woman'>You are awesome, #{params[:name]}.</Say>
+      <Record maxLength='20' />
+    </Response>"
+  end
 end
