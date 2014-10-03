@@ -12,9 +12,15 @@ class Awesome < Sinatra::Base
     auth_token = ENV["ACCOUNT_AUTH_TOKEN"]
 
     @client = Twilio::REST::Client.new account_sid, auth_token
-    @call = @client.account.calls.create({:to => params[:to],
-                                  :from => ENV["ACCOUNT_PHONE_NUMBER"],
-                                  :url => "http://you-are-awesome.herokuapp.com/#{params[:name]}.xml"})
+    if params[:call]
+      @client.account.calls.create(to: params[:to],
+                                   from: ENV["ACCOUNT_PHONE_NUMBER"],
+                                   url: "http://you-are-awesome.herokuapp.com/#{params[:name]}.xml")
+    else
+      @client.messages.create(to: params[:to],
+                              from: ENV["ACCOUNT_PHONE_NUMBER"],
+                              body: "You are awesome #{params[:name]}. - someone who cares")
+    end
 
     erb :thanks
   end
